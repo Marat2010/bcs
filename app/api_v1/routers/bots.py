@@ -1,19 +1,10 @@
 from fastapi import APIRouter
-from pydantic import BaseModel
 from typing import List
 
+from app.api_v1.schemas.bots import Bot
+from app.db.models import bots_db
+
 router = APIRouter()
-
-
-# Модель для бота
-class Bot(BaseModel):
-    id: int
-    name: str
-    description: str = None
-
-
-# Список для хранения ботов
-bots_db = []
 
 
 @router.post("/bots/", response_model=Bot)
