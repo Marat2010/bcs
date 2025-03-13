@@ -1,3 +1,4 @@
+from typing import Optional
 from pydantic import BaseModel, Field
 
 
@@ -5,8 +6,8 @@ from pydantic import BaseModel, Field
 class Bot(BaseModel):
     id: int
     name: str = Field(..., min_length=1, max_length=100)
-    description: str = None
-    token: str = None
-    port: int = None
+    description: Optional[str] = None
+    token: Optional[str] = None
+    port: Optional[int] = None
     active: bool = False
 
